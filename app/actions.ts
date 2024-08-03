@@ -253,8 +253,14 @@ export async function checkout() {
         },
         quantity: item.quantity,
       })),
-      success_url: `http://localhost:3000//payment/success`,
-      cancel_url: `http://localhost:3000/payment/cancel`,
+      success_url:
+        process.env.NODE_ENV === "development"
+          ? `http://localhost:3000/payment/success`
+          : `https://shoeshop-six.vercel.app/payment/success`,
+      cancel_url:
+        process.env.NODE_ENV === "development"
+          ? `http://localhost:3000/payment/cancel`
+          : `https://shoeshop-six.vercel.app/payment/cancel`,
       metadata: {
         userId: user?.id,
       },
