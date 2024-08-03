@@ -10,10 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { unstable_noStore as noStore } from "next/cache";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
-import ResponsiveContainer from "./ResponsiveContainer";
 import Chart from "./ResponsiveContainer";
 
 interface Props {}
@@ -40,6 +40,8 @@ async function getData() {
   });
 }
 async function getDataForCharts() {
+  noStore();
+
   const now = new Date();
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(now.getDate() - 7);

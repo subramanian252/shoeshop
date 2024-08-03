@@ -16,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import React from "react";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface Props {}
 
@@ -41,6 +42,7 @@ async function getData() {
 }
 
 async function Page(props: Props) {
+  noStore();
   const {} = props;
 
   const data = await getData();

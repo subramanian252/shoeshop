@@ -27,6 +27,7 @@ import { MoreHorizontalIcon, PlusIcon, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface Props {}
 
@@ -41,6 +42,7 @@ async function getData() {
 }
 
 async function Page(props: Props) {
+  noStore();
   const {} = props;
 
   const data = await getData();

@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import prisma from "../lib/db";
 import ProductCard from "./ProductCard";
 import LoadingSkeleton from "./loadingSkeleton";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface Props {}
 
@@ -25,6 +26,8 @@ async function getData() {
 }
 
 async function FeaturedProducts(props: Props) {
+  noStore();
+
   const {} = props;
 
   return (

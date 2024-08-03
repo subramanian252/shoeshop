@@ -17,11 +17,14 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
+import { unstable_noStore as noStore } from "next/cache";
+
 interface Props {
   children: React.ReactNode;
 }
 
 async function Layout(props: Props) {
+  noStore();
   const { children } = props;
 
   const { getUser } = getKindeServerSession();

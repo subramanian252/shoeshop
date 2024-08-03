@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import prisma from "../lib/db";
 
+import { unstable_noStore as noStore } from "next/cache";
+
 async function getData() {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -46,6 +48,7 @@ async function getData() {
 }
 
 async function DashboardStats(props: Props) {
+  noStore();
   const {} = props;
 
   const { totalUsers, totalOrders, totalProducts } = await getData();

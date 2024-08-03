@@ -8,10 +8,12 @@ import {
   RegisterLink,
 } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Button } from "@/components/ui/button";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface Props {}
 
 async function UserNav(props: Props) {
+  noStore();
   const {} = props;
 
   const { getUser } = getKindeServerSession();
